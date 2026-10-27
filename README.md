@@ -1,7 +1,3 @@
-Here is a professional and clean **`README.md`** file for your GitHub repository.
-
-You can create a file named `README.md` in your project folder, paste this content into it, and push it to your repository (`git add README.md`, `git commit -m "Add README"`, `git push`).
-
 ---
 
 # 👥 Team Directory & Attendance Management App
