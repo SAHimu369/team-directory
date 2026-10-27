@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Directory & Attendance Management</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <div class="header-section">
+        <h1>Team Directory</h1>
+        <div class="header-actions">
+            <label class="btn btn-secondary upload-btn" title="Upload CSV or JSON">
+                📁 Upload List
+                <input type="file" id="file-uploader" accept=".json, .csv" onchange="handleFileUpload(event)" style="display: none;">
+            </label>
+            <button class="btn btn-primary" onclick="toggleModal(true)">+ Add Newcomer</button>
+        </div>
+    </div>
+    
+    <!-- Status & Analytics Dashboard -->
+    <div class="stats-dashboard">
+        <div class="stat-box total-box">
+            <h3>Total Team</h3>
+            <p id="stat-total">0</p>
+        </div>
+        <div class="stats-bottom-row">
+            <div class="stat-box dept-box">
+                <h3>By Department</h3>
+                <div id="stat-departments" class="stat-list"></div>
+            </div>
+            <div class="stats-right-column">
+                <div class="stat-box nationality-box">
+                    <h3>By Nationality</h3>
+                    <div id="stat-nationalities" class="stat-list"></div>
+                </div>
+                <div class="stat-box attendance-box">
+                    <h3>Today's Attendance by Nationality</h3>
+                    <div id="stat-attendance-nationality" class="stat-list"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="controls-bar">
+        <input type="text" id="search-box" class="search-input" placeholder="Search by name, department, title, nationality, or visa type..." oninput="filterContacts()">
+    </div>
+
+    <div class="contact-grid" id="contact-grid">
+        <!-- Dynamic Cards Generated via JavaScript -->
+    </div>
+</div>
+
+<!-- Modal Popup for New Member / Edit -->
+<div class="modal-overlay" id="modal-overlay">
+    <div class="modal">
+        <h2 id="modal-title">Add Newcomer</h2>
+        <form id="contact-form" onsubmit="saveContact(event)">
+            <input type="hidden" id="contact-id">
+            <div class="form-group">
+                <label>Department</label>
+                <input type="text" id="department" required placeholder="e.g. Engineering">
+            </div>
+            <div class="form-group">
+                <label>Full Name</label>
+                <input type="text" id="name" required placeholder="e.g. Shakil Ahommed Himu">
+            </div>
+            <div class="form-group">
+                <label>Nationality</label>
+                <input type="text" id="nationality" required placeholder="e.g. Bangladeshi">
+            </div>
+            <div class="form-group">
+                <label>Job Title</label>
+                <input type="text" id="jobTitle" required placeholder="e.g. Senior Developer">
+            </div>
+            <div class="form-group">
+                <label>From (Source/Visa)</label>
+                <select id="fromSource" required>
+                    <option value="" disabled selected>Select option</option>
+                    <option value="own">own</option>
+                    <option value="aamcom">aamcom</option>
+                    <option value="ekis">ekis</option>
+                    <option value="business visa">business visa</option>
+                </select>
+            </div>
+            <div class="modal-actions">
+                <button type="button" class="btn" onclick="toggleModal(false)">Cancel</button>
+                <button type="submit" class="btn btn-primary">Save Record</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
