@@ -60,7 +60,7 @@ If you are uploading an Excel/CSV file to populate your directory, ensure your C
 
 | Column 1 | Column 2 | Column 3 | Column 4 | Column 5 |
 | --- | --- | --- | --- | --- |
-| **Department** | **Full Name** | **Nationality** | **Job Title** | **From** *(own, aamcom, ekis, business visa)* |
+| **Department** | **Full Name** | **Nationality** | **Job Title** | **From** *(own, other)* |
 
 ---
 
